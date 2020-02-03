@@ -27,6 +27,8 @@ astronomical observatories while also gaining experience operating the 0.9 meter
 
 #### What important information did you learn about HDI and the data we took?
 
+
+
 #### What steps will you need to perform to reduce your data? What software will you need/use?
 
 For each of the data files, I will need to perform the standard reduction operations: prepare master bias files, prepare master flatfields in each band
