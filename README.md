@@ -1,2 +1,2 @@
 # noah-goldman.github.io
- test gihub pages
+ Hosting for A341 blog.
