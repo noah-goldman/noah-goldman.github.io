@@ -67,7 +67,7 @@ These images are both full view and z-scaled. While there isn't much visually di
 
 ### Roadblocks encountered thus far
 
-In terms of the technical work/data analysis I feel very up to date. As for the proposal and science side of things, I am actually quite worried. I feel as though I don't quite understand how to put everything together
+Besides little bits such as the wrong normalization mentioned above, and looking forward to the shifting and stacking step (see bottom of post) I feel very caught up in terms of the technical side of things for the project, and have encountered very few stumbling blocks on the way.
 
 ## Revisit Science
 
@@ -93,6 +93,23 @@ Sections 2, 3, 4, 5, the body of the paper, are both dense and lengthy, and larg
 * The second step does the same but for a CCD, of which there is only one given there are only three colours used
 * Finally, the observed magnitude of the object is compared with its model isochrone magnitude based on its effective temperature
 * These steps are meant to select only candidates from the cluster (as opposed to background/foreground contaminants) of interest
+![CMD](img60.png)
+
+#### Results from Survey
+* 123 candidates detected using the dust-free model while only 27 included assuming a dusty model
+* Several dozen(?- not clear how many) of these overlap with sources detected in previous surveys
+* Includes 6 BD candidates, must be confirmed spectroscopically by larger telescope
+
+#### Mass Function
+* Performing the fitting, the mass function derived from the survey is as below:
+![MF](img113.png)
+* Concludes with a discussion comparing the MF for Praesepe with the Hyades cluster- they predict the clusters either had different IMFs or had different dynamical evolution to result in observed MFs
+
+My takeaways from the paper are as follows: first, I notice even with a very deep survey they still detect very few (<200) sources, and with a much larger region of observation. While they have strict requirements for what they consider a candidate, it might be indicative that our data analysis will likely involve very small number statistics. Another discouraging thing I noticed is the difficulty of doing observations of brown dwarfs, even though they determine several BD candidates they decide the available data is not sufficient to confirm these detections- if the outlook is so bleak, perhaps it will be better to solely focus on M dwarfs. However the situation might be quite different for our analysis, so this would be something to ask about.
+
+The analysis here sadly contains no mention of rotation rates- overall, it was not as informative and relevant as I had initially hoped, however some of the citations may be useful, as the paper references many previous surveys I may be able to get complementary data or techniques or simply ideas from. I also have yet to view the techniques/analysis used in detail, so there might be something I can glean from that. It's interesting to read about their process for reducing raw science frames and how it compares to ours. Additionally, it helps answer a question earlier about how masses are calculated from photometry, although here calibrated photometry is required and we will not be computing calibrated magnitudes.
+
+Of the papers cited in this work I believe the best to follow up on is "The Stellar Populations of Praesepe and Coma Berenices" (Kraus et al, 2007) as it seems to be a more general collection of photometry from the cluster rather than a focused subset and also deals with some potential topics to study for my project.
 
 ## Looking Ahead
 
