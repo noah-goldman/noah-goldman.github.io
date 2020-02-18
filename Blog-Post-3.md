@@ -59,14 +59,45 @@ For the most part, this is the same as the corresponding functions used in AST 3
 
 After finalizing the code I went on to test it on some frames, then after being satisfied with those results, reduced each of the science frames for the first night of data. Here is an example, using the bias corrected vs. flatfielded versions of visual image 198 from night one:
 
+![before](b_198.png)
 
+![after](flat_198.png)
+
+These images are both full view and z-scaled. While there isn't much visually different, and also little difference in the counts, if you look closely you can see that the counts in the darker corners are brought up after flatfielding, and similarly the centre region is brought down slightly. Since this is more or less what we expect a flatfield to do, I am satisfied with this result. If there is a more rigorous way of testing this, that would be a good thing to look at before running the entire data set.
 
 ### Roadblocks encountered thus far
 
+In terms of the technical work/data analysis I feel very up to date. As for the proposal and science side of things, I am actually quite worried. I feel as though I don't quite understand how to put everything together
+
 ## Revisit Science
 
-### Summary of Boudrealt Paper
+### Summary of Boudrealt Paper 
+
+The paper I am reading this week is "Brown dwarfs and very low mass stars in the Praesepe open cluster: a dynamically unevolved mass function?" by Boudrealt et al. Below is a summary of what the authors have to say:
+
+The introduction begins with several examples of recent papers discussing the mass function of low mass stars and brown dwarfs in open clusters. The mass function of a stellar population is simply a histogram of (log-scaled) masses for the population, which is often modelled with a function. How this function changes from one cluster to another has substantial consequences on stellar evolution as this determines the mass evolution for a stellar population. The authors then justify the importance of studying the mass function (MF) at low mass limits, particularly in old clusters: for studying the luminosity and temperature evolution of brown dwarfs, how brown dwarf populations evolve, particularly what fraction are ejected from a given population compared to younger clusters, and also models are much less constrained for properties of very young brown dwarfs, despite most recent studies focus on younger objects. 
+
+The authors then proceed to give a background on the Praesepe cluster and why it is a good candidate for this study, citing quantities for age, metallicities, distance, etc; additionally describing recent studies that focused on characterizing the MF on low end mass scales. The introduction ends by introducing the survey of the cluster conducted by the authors, and lining out the remaining paper structure.
+
+Sections 2, 3, 4, 5, the body of the paper, are both dense and lengthy, and largely focus on techniques used to survey, reduce, and analyse the data collected in their Praesepe survey. Here are some highlights:
+
+#### Data and Reduction
+* Observations were taken in the near IR from a 3.5m telescope in Spain and in the optical on a 2.2m telescope in Chile
+* The bands used include J, K, and in some regions I
+* Authors describe bias, dark, and flatfield corrections, as well as photometric calibration
+* Isochrones from Baraffe et al. are used for models of effective temperature and mass for detections
+* Authors differentiate between a "dusty" model and "dust-free" model
+
+#### Candidate Selection
+* Use three candidate selection steps: the first is selecting only objects within a certain colour difference of a model isochrone on its CMD, for each combination of bands
+* The second step does the same but for a CCD, of which there is only one given there are only three colours used
+* Finally, the observed magnitude of the object is compared with its model isochrone magnitude based on its effective temperature
+* These steps are meant to select only candidates from the cluster (as opposed to background/foreground contaminants) of interest
 
 ## Looking Ahead
 
 ### Next Data Analysis Steps
+
+The first, most obvious next step is to perform the flatfielding on the other nights of data. Perhaps do some other checks to make sure I did it right for the first night, but otherwise there's no reason I can't go ahead and finish all if it using the code I have. It'll be fairly easy too- I simply have to CD into the directory for each night, create the master flatfield files in each filter, and do the flatfielding.
+
+After that, I'll need to do shifting and stacking to account for drift in the frames from one exposure to another. I'm a little worried about this since I did some looking ahead during the observing run, using my AST 337 code to perform the shifting and stacking for one night's data on one object, and the result was not pretty: while flatfielding had removed dust doughnuts and the notorious hair in the centre of each image, my attempt at shifting and stacking actually brought these features back! My work on this was deleted as I did not have storage space at the time to hold onto the data so I cannot show evidence of this disaster. I hope the next few classes will introduce methods to improve on the shifting and stacking algorithm from last semester. 
