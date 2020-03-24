@@ -5,6 +5,16 @@ permalink: /Blog-Post-7.html
 
 ## This Week's Work
 
+With my draft stacks in each band and after finally getting AIJ working on my main computer I was able to compute some light curves for sources in the Praesepe field. Below are the light curves I got by looking at three of the sources from the AAVSO spreadsheet:
+
+![BS Cnc](BS_Cnc.png)
+
+![RY Cnc](RY_Cnc.png)
+
+![AX Cnc](AX_Cnc.png)
+
+I'm still not quite sure on how to best select comparison sources; all of the light curves seem to have very little variation through the observations, and the most likely scenarios seem to be either I'm incorrectly finding the relevant star on my fits image, the variations are simply too long (or perhaps even too short) to detect, or my selection of comparison stars prevents the variation from showing up in the final light curve. While the first two are definitely possible and should be looked into, I fear it is the third that is causing this, so I need to figure out how to best make these selections before proceeding with more light curve generation.
+
 ## Reading Notes
 
 ### Fourier Transform
@@ -31,3 +41,17 @@ Of the many Fourier Transform algorithms, the ones we are mainly interested in a
 While it is the most widely used, the FT is not the only method available to do time series analysis on variable star sources. An example of a statistical method is called autocorrelation: this method compares data separated by time interval tau, and determines what tau best estimates the characteristic time interval, or in our case the period, of the data. While this may give less information than the FT it is better suited to stars whose variability is not shaped like a sinusoid, e.g. semiregular variables that do not follow single, long term periods. Another method is ANOVA, which is typically used in engineering or finance but also can be applied to variable stars: this method creates a folded light curve for some test period and measures the resulting variance: the period that produces the smallest variance is then the characteristic period. Other statistical methods are available to solve different problems, such as those suited to data sets with large gaps.
 
 ### Paper Discussion
+
+Some recent, relevant papers I looked at:
+
+#### Stellar population astrophysics (SPA) with the TNG. Revisiting the metallicity of Praesepe (M 44) 
+
+While this paper does not look at rotation rates, variability, or any of these topics we're interested in, it does talk about the age of the cluster and comparing this to that of the Hyades cluster, which is why this paper is interesting. In this work they conclude that Praesepe is slightly younger than previously postulated, closer to ~600 Myr rather than ~750 Myr, and additionally younger than Hyades, thus the two clusters cannot have a common origin. They also discuss gyrochronology briefly in this paper, and while I did not get a chance to really dive in and understand, this might be an interesting place to look for techniques I can use in my project.
+
+#### Spectral library of age-benchmark low-mass stars and browndwarfs
+
+This paper also does not directly relate to the project in any of the main catagories however it does do many interesting analyses that touch on the peripheries of relevance to the project. Here the authors are mainly focused on comparing surface gravity estimates to those computed with spectrography. Of relevance is how they match their catalogues with many external data sets, use data from many clusters including Praesepe, do analysis on how certain properties vary with age, and how they go about flagging previously undiscovered binary candidates. Their work is additionally focused mainly on M and Brown Dwarfs, so for these reasons was interesting to look through and might be valuable to follow up on.
+
+#### Radial velocity confirmation of K2-100b: a young, highly irradiated,and low density transiting hot Neptune
+
+Planets detected in open clusters are relatively rare, so it was interesting to see a paper on the confirmation on one. Sadly, it sits slightly outside of our field of view so no direct analysis can be done on its parent star. The parent star has similar qualities to the sun, being slightly larger and more massive but much younger at ~750 Myr according to the determination by the authors. They used radial velocity method to confirm the planet, and were able to do some unique analysis on the simultaneous effects on radial velocity by the orbiting planet and the stellar activity. This work might be more relevant if my project used the H-alpha data however since we are only using the optical data it seems little can be drawn as the host is out of range.
