@@ -16,7 +16,7 @@ I have produced light curves in R and V bands for matched sources detected in ou
 ![T15](lcT15.png)
 ![T18](lcT18.png)
 
-(R band light curves for T1, T2, T3, T7, T15, T18. Sources will be rematched to IDs at a later time)
+(R band light curves for T1, T2, T3, T7, T15, T18. Sources will be rematched to IDs at a later time) For the most part they seem believable, with the exception of the two outlying points on T1 on night 2. Night 2's data is particularly poor so this is one explanation, however further analysis is required.
 
 ### Matching Data to External Catalogues
 
