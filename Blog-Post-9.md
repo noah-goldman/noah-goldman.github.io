@@ -35,6 +35,8 @@ with PdfPages('Praesepe_1_R.pdf') as pdf:
 ~~~
 These piece of code was used to make a PDF for each band's light curves, and additionally a PDF for light curves containing all three bands simultaneously.
 
+{{ noah-goldman.github.io }}/Praesepe_1_V.pdf
+
 ### Interpretation of Light Curves
 
 #### What kinds of variation are present?
