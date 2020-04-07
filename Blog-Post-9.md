@@ -37,14 +37,34 @@ These piece of code was used to make a PDF for each band's light curves, and add
 
 <embed src="https://noah-goldman.github.io/Praesepe_1_V.pdf" type="application/pdf" />
 
-hello why haven't you updated????
+These are the light curves from the V photometry. I will be using this file to reference individual light curves in my below analysis.
 
 ### Interpretation of Light Curves
 
 #### What kinds of variation are present?
 
+
+
 #### How can we interpret variations in different bands?
 
 ### Periodogram Analysis
+
+Now having light curves I can begin on the crucial part of the analysis: computation of rotation periods. As described previously, I'll be doing this using the Lomb-Scargle Periodogram on the light curve data. In class we did an exercise calculating such a periodogram for some sample data; below is the code from that activity adapted to a single V band light curve from my sample:
+~~~ python
+f, p = LombScargle(dataV['time'], dataV['flux'][:, 5], dataV['fluxerr'][:, 5]).autopower()
+plt.plot(1/f*24, p, color='m')
+plt.xlabel('Period [Hours]')
+plt.ylabel('Power')
+plt.xlim(0, 200)
+~~~
+This code has one major flaw: it cannot deal with nan values as whenever it encounters one (of which there are many) in the flux array, the entire power array is returned as zeros. Furthermore, the structure of the data file makes reassigning nans or avoiding them in the LS computation very difficult. In light of this, I only have to offer a single periodogram where there were no nans:
+
+![periodogram](periodogram.png)
+
+The periodogram itself doesn't seem to indicate a particularly strong periodic signal, particularly one that would indicate rotation. The periods we are looking for are on the order of the length of observations, or close to 200 hours. Instead, the peak is near 16 hours and the next at an even smaller period. The best possible rotation period seems to be the peak near 125 hours. I plotted its phase diagram:
+
+![phase](phase.png)
+
+There doesn't seem to be any indication of a (rotation induced) period here, so the likely explanations include that there is a flaw somewhere in my method, or that this source simply doesn't show rotations on the scale we're interested in. The next thing to do would be to compare this to the light curve, and also to do a periodogram for a source I am more convinced has rotation induced variability.
 
 ### Updated Table Matching
