@@ -37,6 +37,8 @@ These piece of code was used to make a PDF for each band's light curves, and add
 
 <embed src="https://noah-goldman.github.io/Praesepe_1_V.pdf" type="application/pdf" />
 
+hello why haven't you updated????
+
 ### Interpretation of Light Curves
 
 #### What kinds of variation are present?
