@@ -1,6 +1,9 @@
 # Welcome~
 
 ## Posts
+[Blog Post Week 10, 04/14/20](https://noah-goldman.github.io/Blog-Post-10)
+
+
 [Blog Post Week 9, 04/07/20](https://noah-goldman.github.io/Blog-Post-9)
 
 
