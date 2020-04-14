@@ -5,9 +5,53 @@ permalink: /Blog-Post-10.html
 
 ## This Week's Work
 
-### Figure Updates, Computing Periods, Table Matching
+### Updates
 
-### Attempts at describing relations
+I've made improvements to my code doing photometry for all my data. Specifically, my settings for aperture photometry were way off from what they should be; the aperture and annuli size were significantly reduced to 8 pixels, and 12-17 pixels respectively. This improved my comparison stars plot by reducing the errors as well as the number of outliers:
+
+![comparions](comparisons.png)
+
+This overall reduced my error bars, although many remain quite large (~+/-1 relative flux). Updated plots are as below:
+
+<embed src="https://noah-goldman.github.io/Praesepe_2_V.pdf" type="application/pdf" />
+
+<embed src="https://noah-goldman.github.io/Praesepe_2_all.pdf" type="application/pdf" />
+
+If you look closely, you'll notice some sources are repeated in the plots. This was indeed true for last week's plots as well; after looking into this I found the error is not in the plotting but instead some sources are actually repeated once or twice in the data files. While I'm not sure where this is coming from, my sample size of potential rotators is small enough to simply leave these copies and be aware of their presense while trying to look for variables. 
+
+On the topic of finding periods, I have made major progress towards applying periodograms to the light curves. After fixing a bug related to NaN values, I ran the periodograms on all light curves in the V band:
+
+~~~ python
+for k in range(len(Vflux[0, :])):
+    a      = Vflux[:, k]
+    aerr   = Vfluxerr[:, k]
+    time   = dataV['time']
+    if len(time[a>1e-50])>1:
+        f, p   = LombScargle(time[a>1e-50], a[a>1e-50], aerr[a>1e-50]).autopower()
+        per    = 1/f
+        fp, pp = f[per>3], p[per>3]
+        best_frequency = fp[np.argmax(pp)]
+        phase = (time-np.amin(time))*best_frequency
+        stnd_phase = phase - np.floor(phase)
+        pphase = stnd_phase - 1
+        plt.errorbar(stnd_phase[a>1e-50], a[a>1e-50], aerr[a>1e-50], fmt='bo')
+        plt.errorbar(pphase[a>1e-50], a[a>1e-50], aerr[a>1e-50], fmt='bo')
+        plt.xlabel('Phase')
+        plt.ylabel('Signal [Units]')
+        plt.ylim(0.9, 1.1)
+        plt.show()
+        print(1/best_frequency)
+        print(dataV['ra'][k], dataV['dec'][k])
+        print(k)
+~~~
+
+Because the power spectrum fluctuates wildly and often peaks at values much shorter than we expect for late type rotators, I require the best fit period be longer than three days. Despite this we still report some oddities; around 11 independent (not including duplicates) sources seem to have a period very close to 6.495, and other identical periods are present. I haven't determined the source for this phenomenon or whether it will be problematic, but I am looking into it. There have been some successes in the period search:
+
+![period1](period1.png)
+
+![period2](period2.png)
+
+These two sources seem to have pretty strong evidence for being periodic variables. I'm still working on fitting them using sinusoids to see just how they act as rotators but at this point I am quite satisfied with these two and several others.
 
 ### Goals and directions for poster draft
 
